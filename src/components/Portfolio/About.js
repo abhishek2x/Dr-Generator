@@ -1,6 +1,6 @@
 import { Grid, makeStyles, Typography } from '@material-ui/core'
 import React from 'react'
-import img from '../../static/images/portfolio.png'
+import img from '../../static/images/portfolio.jpeg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,11 +12,17 @@ const useStyles = makeStyles((theme) => ({
   },
   mainGrid: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    [theme.breakpoints.down('sm')]: {
+      padding: '30px'
+    },
   },
   imageDiv: {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    [theme.breakpoints.down('sm')]: {
+      padding: '30px'
+    },
   },
   text: {
     color: '#fff'
@@ -31,13 +37,13 @@ function About({ first, last, desc, city, country, email }) {
       <Grid container>
         <Grid
           item
-          xs={4}
+          md={4}
           className={classes.imageDiv}
         >
           <img height='200' src={img} alt="Abhishek" />
         </Grid>
-        <Grid item xs={8} className={classes.mainGrid}>
-          <Grid item xs={8}>
+        <Grid item md={8} className={classes.mainGrid}>
+          <Grid item md={8}>
             <Typography variant="h4" className={classes.text}>
               About Me
             </Typography>

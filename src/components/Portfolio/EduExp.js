@@ -11,13 +11,15 @@ const useStyles = makeStyles((theme) => ({
   },
   contentGrid: {
     marginTop: '50px',
-    marginBottom: '50px'
+    marginBottom: '50px',
+    padding: '30px'
   },
   headGrid: {
     display: 'flex',
     justifyContent: 'center',
     marginTop: '50px',
-    marginBottom: '50px'
+    marginBottom: '50px',
+    padding: '30px'
   },
   headTitle: {
     color: '#000524',
@@ -69,12 +71,12 @@ function EduExp({ education, experience }) {
     <>
       <Paper className={classes.root}>
         <Grid container>
-          <Grid item xs={4} className={classes.headGrid}>
+          <Grid item md={6} className={classes.headGrid}>
             <Typography variant="h5" className={classes.headTitle}>
               EDUCATION
             </Typography>
           </Grid>
-          <Grid item xs={4} className={classes.contentGrid}>
+          <Grid item md={6} className={classes.contentGrid}>
 
             {EducationComp}
 
@@ -85,15 +87,13 @@ function EduExp({ education, experience }) {
 
       <Paper className={classes.root}>
         <Grid container>
-          <Grid item xs={4} className={classes.headGrid}>
+          <Grid item md={6} className={classes.headGrid}>
             <Typography variant="h5" className={classes.headTitle}>
               EXPERIENCE
           </Typography>
           </Grid>
-          <Grid item xs={4} className={classes.contentGrid}>
-
+          <Grid item md={6} className={classes.contentGrid}>
             {ExperienceComp}
-
           </Grid>
         </Grid>
       </Paper>

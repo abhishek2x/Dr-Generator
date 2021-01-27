@@ -16,14 +16,18 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   items: {
-    justifyContent: 'center'
+    justifyContent: 'center',
+    flexWrap: 'wrap',
   },
   title: {
     fontSize: 'initial',
     fontWeight: 'bold',
     // marginRight: '30px',
     letterSpacing: '2px',
-    color: '#888484'
+    color: '#888484',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 'smaller',
+    },
   }
 }));
 

@@ -8,14 +8,12 @@ import WorkingSection from './Fragment/WorkingSection';
 import FeatureSection from './Fragment/FeatureSection';
 import LoginModal from './LoginModal';
 import { UserContext } from '../context/userContext';
-// import { Avatar } from '@material-ui/core';
 import CallMissedOutgoingIcon from '@material-ui/icons/CallMissedOutgoing';
 import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
 import NavbarTop from './NavbarTop';
 import FooterBottom from './FooterBottom';
 import { auth } from '../firebase-config';
 import { Divider } from '@material-ui/core';
-
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -29,6 +27,16 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
   },
+  mainHeading: {
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 'xx-large',
+    },
+  },
+  secondHeading: {
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 'medium',
+    },
+  }
 }));
 
 export default function BaseTemp(props) {
@@ -55,11 +63,23 @@ export default function BaseTemp(props) {
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
-          <Container maxWidth="md">
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+          <Container>
+            <Typography
+              component="h1"
+              variant="h2"
+              align="center"
+              color="textPrimary"
+              className={classes.mainHeading}
+            >
               Automated Portfolio Generator
             </Typography>
-            <Typography maxWidth="sm" variant="h5" align="center" color="textSecondary" paragraph>
+            <br />
+            <Typography
+              variant="h5"
+              align="center"
+              className={classes.secondHeading}
+              color="textSecondary"
+              paragraph>
               Portfolios are a great way to demonstrate the competencies you would list on a resume or talk about in an interview — they allow you to show and not just tell.
             </Typography>
             {user ?

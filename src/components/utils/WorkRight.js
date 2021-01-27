@@ -3,17 +3,29 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  para: {
-    // color: '#212121',
-    // TODO: need to change in dark theme
-  },
   cont: {
     marginTop: '100px'
+  },
+  img: {
+    width: '400px',
+    [theme.breakpoints.down('sm')]: {
+      width: '200px'
+    },
+  },
+  para1: {
+    overflowWrap: 'break-word',
+    marginBottom: '40px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 'x-large',
+    },
+  },
+  para2: {
+    overflowWrap: 'break-word',
+    marginBottom: '40px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 'large',
+    },
   }
-  // rots: {
-  //   position: 'absolute',
-  //   transform: [{ rotate: '10deg'}]
-  // }
 }));
 
 function WorkLeft({ text1, text2, image }) {
@@ -27,21 +39,20 @@ function WorkLeft({ text1, text2, image }) {
     >
 
       <Grid container>
-
-        <Grid container item xs={5} justify="center">
-          <img width="400" src={image} alt="working" />
+        <Grid container item md={5} justify="center">
+          <img className={classes.img} src={image} alt="working" />
         </Grid>
 
-        <Grid item xs={2}>
+        <Grid item md={2}>
           {/* Intentionally Empty */}
         </Grid>
 
-        <Grid container item xs={5} justify="center">
+        <Grid container item md={5} justify="center">
           <Typography
             component="h3"
             variant="h4"
             color="textPrimary"
-            className={classes.para}
+            className={classes.para1}
             gutterBottom
           >
             {text1}
@@ -49,20 +60,11 @@ function WorkLeft({ text1, text2, image }) {
           <Typography
             variant="subtitle1"
             color="textSecondary"
-            style={{ overflowWrap: 'break-word' }}
+            className={classes.para2}
           >
             {text2}
           </Typography>
-          {/* <Typography
-            component="h6"
-            variant="h6"
-            para
-            color="textPrimary"
-          >
-            <Button variant="contained" color="secondary">Check this</Button>
-          </Typography> */}
         </Grid>
-
       </Grid>
     </Container>
   )

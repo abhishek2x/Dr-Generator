@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop.js'
 import FooterBottom from '../components/FooterBottom.js'
@@ -7,6 +7,7 @@ import { database } from '../firebase-config'
 import { FirebaseUserDefaultData } from '../components/utils/defaultData.js'
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { UidContext } from '../context/uidContext.js'
 
 const useStyles = makeStyles((theme) => ({
   btn: {
@@ -36,6 +37,7 @@ function Profile(props) {
   const classes = useStyles();
   const { uid } = useParams();
   const [docData, setDocData] = useState(FirebaseUserDefaultData)
+  const [uid2] = useContext(UidContext)
 
   var docRef = database.collection("users").doc(uid);
 
@@ -50,18 +52,17 @@ function Profile(props) {
     await docRef.get().then(function (doc) {
       if (doc.exists) {
         setDocData(doc.data())
-        console.log("All data: ", doc.data())
-        console.log("All data: ", docData)
+        // console.log("All data: ", doc.data())
+        // console.log("All data: ", docData)
       } else {
         console.log("No such document!");
       }
     }).catch(function (error) {
-      console.log("Error getting document:", error);
+      alert(error)
     });
   })
 
   useEffect(() => {
-    console.log("running")
     fetchData();
   }, []);
 
@@ -74,9 +75,29 @@ function Profile(props) {
       Back
     </Button>
   )
+  var saveButton = (<></>)
+
+  if (uid === uid2) {
+    saveButton = (
+      <Button
+        size="large"
+        variant="contained"
+        onClick={UpdateFireStore}>
+        Save Data
+      </Button>
+    )
+  } else {
+    saveButton = (
+      <Button
+        size="large"
+        variant="contained">
+        You can't save someone else's data
+      </Button>
+    )
+  }
 
   const BasicDetailSection = (
-    <Grid item md={6}>
+    <Grid item md={6} xs={12}>
       <Paper className={classes.box}>
         <h2>Basic Details </h2>
 
@@ -124,7 +145,7 @@ function Profile(props) {
   )
 
   const ExperienceSection = (
-    <Grid item md={6}>
+    <Grid item md={6} xs={12}>
       <Paper className={classes.box}>
         <h2>Experience </h2>
         {docData.Experience.map((exp, index) =>
@@ -247,9 +268,9 @@ function Profile(props) {
   )
 
   const EducationSection = (
-    <Grid item md={6}>
+    <Grid item md={6} xs={12}>
       <Paper className={classes.box}>
-        <h2>Education </h2>
+        <h2>Education</h2>
         {docData.Education.map((edu, index) =>
           <>
             {index + 1}
@@ -389,7 +410,7 @@ function Profile(props) {
   )
 
   const AchievementsLinks = (
-    <Grid item md={6}>
+    <Grid item md={6} xs={12}>
       <Paper className={classes.box}>
         <h2>Achievements</h2>
         {docData.Achievements.map((achievement, index) =>
@@ -439,7 +460,7 @@ function Profile(props) {
   )
 
   const SkillList = (
-    <Grid item md={6}>
+    <Grid item md={6} xs={12}>
       <Paper className={classes.box}>
         <h2>Skills</h2>
         {docData.Skills.map((skill, index) =>
@@ -488,7 +509,7 @@ function Profile(props) {
   )
 
   const SocialLinks = (
-    <Grid item md={6}>
+    <Grid item md={6} xs={12}>
       <Paper className={classes.box}>
         <h2>Social Links</h2>
         <TextField
@@ -599,11 +620,9 @@ function Profile(props) {
           {SocialLinks}
         </Grid>
 
-        <Button
-          size="large"
-          variant="contained"
-          onClick={UpdateFireStore}>Save Data</Button>
+        {saveButton}
       </Grid>
+
       <FooterBottom />
     </>
   )

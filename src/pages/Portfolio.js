@@ -19,18 +19,17 @@ function Portfolio() {
     await docRef.get().then(function (doc) {
       if (doc.exists) {
         setDocData(doc.data())
-        console.log("All data: ", doc.data())
-        console.log("All data: ", docData)
+        // console.log("All data: ", doc.data())
+        // console.log("All data: ", docData)
       } else {
         console.log("No such document!");
       }
     }).catch(function (error) {
-      console.log("Error getting document:", error);
+      alert(error)
     });
   })
 
   useEffect(() => {
-    console.log("running")
     fetchData();
   }, []);
 

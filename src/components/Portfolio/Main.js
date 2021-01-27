@@ -10,7 +10,10 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '88vh'
   },
   head: {
-    marginBottom: '60px'
+    marginBottom: '60px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 'xx-large',
+    },
   }
 }));
 
@@ -32,12 +35,19 @@ function Main({ first, last, tagline }) {
     <React.Fragment >
       <div className={classes.root}>
         <Container maxWidth="md">
-          <Typography variant="h3" component="h1" align="center" className={classes.head}>
+          <Typography
+            variant="h3"
+            component="h1"
+            align="center"
+            className={classes.head}>
             Hi!, I am {first} {last}
           </Typography>
-          <Typography variant="h6" component="h1" align="center">
+          <Typography
+            variant="h6"
+            component="h1"
+            align="center">
             {tagline}
-        </Typography>
+          </Typography>
         </Container>
       </div>
       <ParticlesBg type={data} bg={true} />

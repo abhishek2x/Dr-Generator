@@ -9,6 +9,7 @@ import { Switch as RouterSwitch, BrowserRouter as Router, Route } from "react-ro
 import NotFound from './NotFound';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import Brightness6Icon from '@material-ui/icons/Brightness6';
+import { UidContextProvider } from '../context/uidContext';
 
 function App() {
   const [DarkMode, setDarkMode] = useState(false);
@@ -47,33 +48,34 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <UserContextProvider>
+        <UidContextProvider>
 
-        <Router>
-          <RouterSwitch>
+          <Router>
+            <RouterSwitch>
 
-            <Route exact path="/profile/:uid">
-              <Profile switchComp={switchComp} />
-            </Route>
+              <Route exact path="/profile/:uid">
+                <Profile switchComp={switchComp} />
+              </Route>
 
-            <Route exact path="/:uid">
-              <Portfolio />
-            </Route>
+              <Route exact path="/:uid">
+                <Portfolio />
+              </Route>
 
-            <Route exact path="/">
-              <Paper>
-                <BaseTemp switchComp={switchComp} />
-              </Paper>
-            </Route>
+              <Route exact path="/">
+                <Paper>
+                  <BaseTemp switchComp={switchComp} />
+                </Paper>
+              </Route>
 
-            <Route path="/*">
-              <Paper>
-                <NotFound />
-              </Paper>
-            </Route>
+              <Route path="/*">
+                <Paper>
+                  <NotFound />
+                </Paper>
+              </Route>
 
-          </RouterSwitch>
-        </Router>
-
+            </RouterSwitch>
+          </Router>
+        </UidContextProvider>
       </UserContextProvider>
     </ThemeProvider>
   );

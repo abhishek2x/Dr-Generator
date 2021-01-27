@@ -12,7 +12,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#00000026',
-    minHeight: '40vh'
+    minHeight: '40vh',
+    flexWrap: 'wrap',
   },
   icon: {
     color: '#4e4e4e'
@@ -21,9 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Footer({ links }) {
   const classes = useStyles();
-  // const allLinks = links;
-  // console.log("link", allLinks)
-  // // console.log("link", allLinks)
+
   return (
     <Paper className={classes.root}  id="contact">
       <Button href={links.Github}>
