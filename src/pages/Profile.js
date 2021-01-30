@@ -2,12 +2,14 @@ import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import NavbarTop from '../components/NavbarTop.js'
 import FooterBottom from '../components/FooterBottom.js'
-import { Button, Grid, makeStyles, Paper, TextField } from '@material-ui/core'
-import { database } from '../firebase-config'
+import { Button, Grid, IconButton, makeStyles, Paper, TextField } from '@material-ui/core'
+import { database, projectStorage } from '../firebase-config'
 import { FirebaseUserDefaultData } from '../components/utils/defaultData.js'
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { UidContext } from '../context/uidContext.js'
+import { PhotoCamera } from '@material-ui/icons'
+import DescriptionIcon from '@material-ui/icons/Description';
 
 const useStyles = makeStyles((theme) => ({
   btn: {
@@ -52,7 +54,7 @@ function Profile(props) {
     await docRef.get().then(function (doc) {
       if (doc.exists) {
         setDocData(doc.data())
-        // console.log("All data: ", doc.data())
+        console.log("All data: ", doc.data())
         // console.log("All data: ", docData)
       } else {
         console.log("No such document!");
@@ -120,7 +122,35 @@ function Profile(props) {
             onChange={(e) => setDocData({ ...docData, LastName: e.target.value })}
           />
         </div>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-around'
+        }}>
+        <TextField
+            className={classes.field}
+            label="City"
+            variant="filled"
+            value={docData.city}
+            onChange={(e) => setDocData({ ...docData, city: e.target.value })}
+          />
+          <TextField
+            className={classes.field}
+            label="Country"
+            variant="filled"
+            value={docData.country}
+            onChange={(e) => setDocData({ ...docData, country: e.target.value })}
+          />
+        </div>
         <div>
+          <TextField
+            fullWidth
+            className={classes.field}
+            label="Email"
+            multiline
+            variant="filled"
+            value={docData.email}
+            onChange={(e) => setDocData({ ...docData, email: e.target.value })}
+          />
           <TextField
             fullWidth
             className={classes.field}
@@ -459,6 +489,90 @@ function Profile(props) {
     </Grid>
   )
 
+  const imageChangeHandler = (e) => {
+    let selected = e.target.files[0];
+
+    const uploadImageTask = projectStorage.ref(`images/${selected.name}`).put(selected);
+
+    uploadImageTask.on(
+      "state_changed",
+      snapshot => {
+        //shows %age uploaded 
+      },
+      error => {
+        console.log(error)
+      },
+      () => {
+        projectStorage
+          .ref("images")
+          .child(selected.name)
+          .getDownloadURL()
+          .then(url => {
+            // console.log(url)
+            setDocData({ ...docData, image: url })
+          })
+      }
+    )
+  };
+
+
+  const resumeChangeHandler = (e) => {
+    let selected = e.target.files[0];
+
+    const uploadImageTask = projectStorage.ref(`resume/${selected.name}`).put(selected);
+
+    uploadImageTask.on(
+      "state_changed",
+      snapshot => {
+        //shows %age uploaded 
+      },
+      error => {
+        console.log(error)
+      },
+      () => {
+        projectStorage
+          .ref("resume")
+          .child(selected.name)
+          .getDownloadURL()
+          .then(url => {
+            // console.log(url)
+            setDocData({ ...docData, resume: url })
+          })
+      }
+    )
+  };
+
+  const Files = (
+    <Grid item md={6} xs={12}>
+      <Paper className={classes.box}>
+        <h2>Image and Resume</h2>
+
+        <input type="file" onChange={imageChangeHandler} />
+        <label htmlFor="icon-button-file">
+          <IconButton
+            color="secondary"
+            aria-label="upload picture"
+            component="span">
+            <PhotoCamera />
+          </IconButton>
+        </label>
+
+        <br /><br />
+
+        <input type="file" onChange={resumeChangeHandler} />
+        <label htmlFor="icon-button-file">
+          <IconButton
+            color="secondary"
+            aria-label="upload picture"
+            component="span">
+            <DescriptionIcon />
+          </IconButton>
+        </label>
+
+      </Paper>
+    </Grid>
+  )
+
   const SkillList = (
     <Grid item md={6} xs={12}>
       <Paper className={classes.box}>
@@ -614,6 +728,10 @@ function Profile(props) {
 
         <Grid className={classes.mainBoxes} container>
           {SkillList}
+        </Grid>
+
+        <Grid className={classes.mainBoxes} container>
+          {Files}
         </Grid>
 
         <Grid className={classes.mainBoxes} container>

@@ -1,6 +1,6 @@
-import { Grid, makeStyles, Typography } from '@material-ui/core'
+import { Button, Grid, makeStyles, Typography } from '@material-ui/core'
 import React from 'react'
-import img from '../../static/images/portfolio.jpeg'
+import DescriptionIcon from '@material-ui/icons/Description';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
   mainGrid: {
     justifyContent: 'center',
     alignItems: 'center',
+    padding: '30px',
     [theme.breakpoints.down('sm')]: {
       padding: '30px'
     },
@@ -29,19 +30,27 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function About({ first, last, desc, city, country, email }) {
+function About({
+  first,
+  last,
+  desc,
+  city,
+  country,
+  email,
+  image,
+  resume }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root} id="about">
       <Grid container>
-        <Grid
+        {image && <Grid
           item
           md={4}
           className={classes.imageDiv}
         >
-          <img height='200' src={img} alt="Abhishek" />
-        </Grid>
+          <img height='200' src={image} alt="Abhishek" />
+        </Grid>}
         <Grid item md={8} className={classes.mainGrid}>
           <Grid item md={8}>
             <Typography variant="h4" className={classes.text}>
@@ -66,6 +75,21 @@ function About({ first, last, desc, city, country, email }) {
             <Typography variant="subtitle1" className={classes.text}>
               {email}
             </Typography>
+            <br />
+            <br />
+            {resume &&
+              <Button
+                color="secondary"
+                href={resume}
+                variant="contained"
+                size="large"
+                endIcon={<DescriptionIcon />}
+                download
+                target="_blank"
+                >
+                Resume
+            </Button>}
+
           </Grid>
         </Grid>
       </Grid>

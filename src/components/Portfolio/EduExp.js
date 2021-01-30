@@ -71,7 +71,7 @@ function EduExp({ education, experience }) {
     <>
       <Paper className={classes.root}>
         <Grid container>
-          <Grid item md={6} className={classes.headGrid}>
+          <Grid item md={4} className={classes.headGrid}>
             <Typography variant="h5" className={classes.headTitle}>
               EDUCATION
             </Typography>
@@ -87,7 +87,7 @@ function EduExp({ education, experience }) {
 
       <Paper className={classes.root}>
         <Grid container>
-          <Grid item md={6} className={classes.headGrid}>
+          <Grid item md={4} className={classes.headGrid}>
             <Typography variant="h5" className={classes.headTitle}>
               EXPERIENCE
           </Typography>

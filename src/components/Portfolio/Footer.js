@@ -25,25 +25,25 @@ function Footer({ links }) {
 
   return (
     <Paper className={classes.root}  id="contact">
-      <Button href={links.Github}>
+      {links.Github && <Button href={links.Github}>
         <GitHubIcon fontSize='large' className={classes.icon} />
-      </Button>
+      </Button>}
 
-      <Button href={links.Facebook}>
+      {links.Facebook && <Button href={links.Facebook}>
         <FacebookIcon fontSize='large' className={classes.icon} />
-      </Button>
+      </Button>}
 
-      <Button href={links.Twitter}>
+      {links.Twitter && <Button href={links.Twitter}>
         <TwitterIcon fontSize='large' className={classes.icon} />
-      </Button>
+      </Button>}
 
-      <Button href={links.Instagram}>
+      {links.Instagram && <Button href={links.Instagram}>
         <InstagramIcon fontSize='large' className={classes.icon} />
-      </Button>
+      </Button>}
 
-      <Button href={links.LinkedIn}>
+      {links.LinkedIn && <Button href={links.LinkedIn}>
         <LinkedInIcon fontSize='large' className={classes.icon} />
-      </Button>
+      </Button>}
     </Paper>
   )
 }

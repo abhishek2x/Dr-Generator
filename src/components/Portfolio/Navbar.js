@@ -55,7 +55,7 @@ export default function Navbar() {
             Skills
           </Button>
           <Button variant="overline" className={classes.title} href="#achievement" >
-            Acievements
+            Achievements
           </Button>
           <Button variant="overline" className={classes.title} href="#contact" >
             Contact

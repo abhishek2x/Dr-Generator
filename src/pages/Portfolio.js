@@ -21,6 +21,7 @@ function Portfolio() {
         setDocData(doc.data())
         // console.log("All data: ", doc.data())
         // console.log("All data: ", docData)
+        // console.log("Image: ", docData.image)
       } else {
         console.log("No such document!");
       }
@@ -48,6 +49,8 @@ function Portfolio() {
         city={docData.city}
         country={docData.country}
         email={docData.email}
+        image={docData.image}
+        resume={docData.resume}
       />
       <EduExp
         education={docData.Education}

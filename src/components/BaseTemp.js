@@ -138,6 +138,7 @@ export default function BaseTemp(props) {
                       <Button
                         variant="contained"
                         color="secondary"
+                        target="_blank"
                         startIcon={<CalendarViewDayIcon />}
                         href={`/${userId}`}
                       >

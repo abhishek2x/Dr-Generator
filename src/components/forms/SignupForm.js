@@ -3,7 +3,6 @@ import { Button, Container, IconButton, InputAdornment, makeStyles, TextField, T
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 import PersonIcon from '@material-ui/icons/Person';
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -42,7 +41,7 @@ function SignupForm({
         align='center'
       >
         Sign Up
-    </Typography>
+      </Typography>
 
       <form className={classes.root} noValidate autoComplete="off">
         <TextField

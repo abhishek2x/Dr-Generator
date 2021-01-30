@@ -1,22 +1,24 @@
 export const FirebaseUserDefaultData = {
-  'FirstName': 'first name',
-  'LastName': 'last name',
+  'FirstName': 'firstname',
+  'LastName': 'lastname',
   'Description': 'Hello, this is my description',
   'tagline': 'This is a quote/tagline',
   'email': 'test@email.com',
-  'city': 'Lucknow',
+  'city': 'Mumbai',
   'country': 'India',
-  'Skills': ['Skill1', 'Skill2', 'Skill3', 'Skill4'],
+  'resume': 'https://docs.google.com/document/d/140_kyeX5V-OYecJO4WXtOEOKYvS2zt8uTEZmOD8BQA8/edit?usp=sharing',
+  'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQPrvDwVG49SBYvvDQI0IqEFnuPr-iMGT7UA&usqp=CAU',
+  'Skills': ['Skill1', 'Skill2', 'Skill3'],
   'Achievements': [
-    'first prize in national level hackathon',
-    'gold medalist in university'
+    'This is my Achievements - 1',
+    'This is my Achievements - 2'
   ],
   'Links': {
-    'Github': 'https://google.com',
-    'Facebook': 'https://google.com',
-    'Twitter': 'https://google.com',
-    'Instagram': 'https://google.com',
-    'LinkedIn': 'https://google.com',
+    'Github': 'https://github.com/username',
+    'Facebook': 'https://www.facebook.com/username',
+    'Twitter': 'https://twitter.com/username',
+    'Instagram': 'https://www.instagram.com/username',
+    'LinkedIn': 'https://www.linkedin.com/in/username',
   },
   'Education': [
     {
