@@ -1,71 +1,85 @@
-# Getting Started with Create React App
+# Automated Portfolio Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Automate Portfolio Generator a service which allows you to create your portfolio in easiest way possible.** It as a Progressive Web Application, build in _React Js_.
 
-## Available Scripts
 
-In the project directory, you can run:
+<div align="center">
+  <img src="Readme-assets/logo.png" />
+</div>
 
-### `yarn start`
+## Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Most students don't know how can they develop one for themselves since some of them were not even from _web dev_ or _technical domain_.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**So I thought of developing something that develops a portfolio website for users.**
 
-### `yarn test`
+This is exactly what it did: **"Automated Portfolio Generator"**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<a href="https://automated-portfolio-generator.web.app/" >**Link of the website**</a>
 
-### `yarn build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Fork and Clone the repo <br/>
+  `git clone https://github.com/abhishek2x/Dr-Generator.git`
+- Change the directory<br/>
+  `cd Dr-Generator`
+- Add Firebase configurations (in src/firebase-config.js)<br/>
+  `Create a Firebase app, and add the config file`
+- Install node dependencies<br/>
+  `npm i` or `npm install` or `yarn`
+- Start the Server<br/>
+  `npm start` or `yarn start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+***
+<br/>
+<div align="center">
 
-### `yarn eject`
+## Demo Video
+<br/>
+<img src="Readme-assets/web.gif" height="450"/>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+</div>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+***
+<br/>
+<div align="center">
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## PWA Capability
+<br/>
+<img src="Readme-assets/pwa.gif" width="250"/>
 
-## Learn More
+</div>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+***
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Tech Stack:
 
-### Code Splitting
+- React JS
+- Firebase
+- Cloud Firestore
+- Material UI
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Contribution
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+If you are looking forward to contributing:
 
-### Making a Progressive Web App
+```bash
+git checkout -b new_branch_name
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Make your changes to new branch and then, push it to your forked repository.
 
-### Advanced Configuration
+And you are ready to make pull request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Project Admin
 
-### Deployment
+| <a href="https://github.com/abhishek2x"><img src="https://avatars.githubusercontent.com/u/53976003?s=460&u=3207af548a3204a51d49db9a48c28aa55aff83a5&v=4" width=70px height=70px /></a> |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Abhishek Srivastava](https://www.github.com/abhishek2x/)                                                                                                   |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Dr-Generator
+> **_Need help?_** > **_Feel free to contact me @ [abhisheksrivastavabbn@gmail.com](mailto:abhisheksrivastavabbn@gmail.com)_**

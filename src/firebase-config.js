@@ -1,12 +1,12 @@
 import firebase from 'firebase'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCqJbZ2CrSB_P9ZiIXeBAXbKRyaDbdw5co",
-  authDomain: "automated-portfolio-generator.firebaseapp.com",
-  projectId: "automated-portfolio-generator",
-  storageBucket: "automated-portfolio-generator.appspot.com",
-  messagingSenderId: "448064427092",
-  appId: "1:448064427092:web:d70af744a8e4e57e8dc9c1"
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: ""
 };
 
 // Initialize Firebase
